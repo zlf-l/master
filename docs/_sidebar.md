@@ -1,11 +1,10 @@
-<!-- docs/_sidebar.md -->
-
-* [JavaSE](README)
-
-* [操作指南](guide.md)
-
-* 前端技术
-  * [javascript](01/javascript/)
-  * [echarts](01/echarts/)
-
-* 服务器端技术
+- 后端技术
+  - [JavaSE](02/JavaSE/)
+  - [Java Web](02/Java%20Web/)
+- 前端技术
+  - [javascript](01/javascript/)
+  - [echarts](01/echarts/)
+- 工具使用
+  - [Git](03/Git/)
+  - [Idea](03/Idea/)
+  - [日常常用](03/Shortcuts/)
