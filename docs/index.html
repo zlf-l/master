@@ -9,16 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="favicon.ico" />
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css" />
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css" />
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" /> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css" /> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css" /> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" />  -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/pure.css" /> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme"  type="text/css" />
 </head>
-<style>
-  body{
-    font-size: 18px;
-  }
-</style>
 <body>
   <div id="app"></div>
   <script>
@@ -26,7 +22,9 @@
       name: '个人文档',
       repo: 'https://github.com/zlf-l/master',
       loadSidebar: true,
-      subMaxLevel: 2,
+      subMaxLevel: 3,
+      auto2top: true,
+      noEmoji: true,
       loadNavbar: true,
       coverpage: true,
       onlyCover: true,
@@ -36,35 +34,37 @@
         maxAge: 86400000, //过期时间,单位毫秒,默认一天
         paths: [], // or 'auto'
         placeholder: '请输入搜索关键字',
-        noData: '没有搜到呦!',
-        depth: 4,
-      }
+        noData: '没有搜到!',
+        depth: 2,
+      },
+      pagination: {
+        previousText: '上一节',
+        nextText: '下一节',
+      },
+      copyCode: {
+        buttonText: '点击复制',
+        errorText: '错误',
+        successText: '复制成功'
+      },
     }
   </script>
-  <!-- <script>
-    window.$docsify = {
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: auto, // 注意：仅适用于 paths: 'auto' 模式
-        placeholder: '搜索',
-        // 支持本地化
-        placeholder: {
-          '/zh-cn/': '搜索',
-          '/': 'Type to search'
-        },
-        noData: '找不到结果',
-        depth: 4,
-        hideOtherSidebarContent: false,
-        namespace: 'Docsify',
-      }
-    }
-  </script> -->
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <!-- 搜索 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 表情支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- 图片放缩 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- click to copy -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <!-- pagination plugin script -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- switch between day and night -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
 </body>
 
 </html>
