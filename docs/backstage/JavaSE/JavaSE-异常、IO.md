@@ -292,17 +292,106 @@ FileNameFilter：⽂件过滤器接⼝
 
 ~~~java
 out.write(int b) ; 
+* ⼀次写⼊⼀个字节，整数表⽰这个字节对应ASCII码值
 out.write(byte b) ; 
+* ⼀次写⼊⼀个字节数组的内容
 out.write(b, off, len) ; 
+* 参数2：从数组的指定位置开始
+* 参数3：执⾏写出的字节个数
+* ⼀次写⼊⼀个字节数组的内容
 ~~~
 
 ⽂件字节输⼊流 FileInputStream
 
 ~~~java
 fis.read() ; 
+* ⼀次读取⼀个字节，返回这个字节所对应的ASCII值,如果读到流的末尾返回-1
 fis.read(byte[] b) ; 
+* 从流中⼀次读取⾃定义缓冲区⼤⼩的字节，并返回读取到的字节⻓度,如果读到流的末尾返回-1
 fis.read(byte[] b,int offset,int len) ; 
+* 参数2：读取到数组中指定起始位置；
+* 参数3: 指定读取的字节个数；
+* 从流中⼀次读取⾃定义缓冲区⼤⼩的字节，并返回读取到的字节⻓度,如果读到流的末尾返回-1
 ~~~
+
+#### FileNameFilter接⼝
+
+> FileNameFilter：⽂件过滤器接⼝
+>
+> * boolean accept(File pathname)。
+> * 当调⽤File类中的listFiles()⽅法时，⽀持传⼊FileNameFilter接⼝接⼝实现类，对获取⽂件进⾏过滤，只有 满⾜条件的⽂件的才可出现在listFiles()的返回值中。
+
+### 字节缓冲流【重点】
+
+> 缓冲流： `BufferedOutputStream` /` BufferedInputStream `
+>
+> * 提⾼IO效率，减少访问磁盘的次数。 
+> * 数据存储在缓冲区中，flush是将缓存区的内容写⼊⽂件中，也可以直接close。
+> * 缓冲流、节点流、处理流（它不能直接和文件打交道）
+
+### 字符流【重点】
+
+#### 字符抽象类
+
+Reader ：字符输⼊流 
+
+~~~java
+public int read(){}。 
+public int read(char[] c){}。
+public int read(char[] b,int off,int len){}。 
+~~~
+
+Writer ：字符输出流 
+
+~~~java
+public void write(int n){}。 
+public void write(String str){}
+public void write(String str,int offset,int len){}
+public void write(char[] c){}。
+public void write(char[] c,int offset,int len){}。
+~~~
+
+#### ⽂件字符流【重点】
+
+⽂件字符输⼊流 FileReader
+
+~~~java 
+fr.read()
+* ⼀次读取⼀个字符，并返回这个字符在Unicode码表中的值，如果读到流的末尾返回-1
+fr.read(char[] ch)
+* ⼀次读取⼀个字符数组，并返回读取到的字符的⻓度，如果读到流的末尾返回-1
+fr.read(char[] ch,int offset,int len)
+* 参数2：指定存放在数组中的起始位置 
+* 参数3：指定存放字符的⻓度
+* ⼀次读取⼀个字符数组，并返回读取到的字符的⻓度，如果读到流的末尾返回-1
+~~~
+
+⽂件字符输出流 FileWriter
+
+~~~java
+write(int b)
+* 写⼊⼀个字符，整数表⽰这个字符在Unicode码表中的值
+write(char[] ch)
+* 写⼊⼀个字符数组
+write(String str)
+* 写⼊⼀个字符串
+write(char[] ch,int offset,int len)
+* 参数2：可以指定数组的起始位置 
+* 参数3：可以指定写⼊的字符⻓度
+* 写⼊⼀个字符数组
+write(String st,int offset,int len)
+* 参数2：可以指定字符串的起始位置 
+* 参数3：可以指定写⼊的字符⻓度
+* 写⼊⼀个字符串
+~~~
+
+### 字符缓冲流【重点】
+
+缓冲流：` BufferedWriter / BufferedReader `
+
+> * ⽀持输⼊换⾏符
+>
+> * 可⼀次写⼀⾏、读⼀⾏。
 
 ## IO流细节
 
@@ -310,14 +399,6 @@ fis.read(byte[] b,int offset,int len) ;
 > 2. 在使⽤⽂件输出流的时候，如果想要向⽂件中追加内容，那么需要将构造参数append设置为true 
 > 3. 在使⽤IO读写的时候，读写的操作应当写在try代码块中，关闭资源的代码写在finally代码块中
 > 4. 将IO流的创建写在try()中，这样IO流在使⽤完成之后⽆需关闭
-
-## 字节缓冲流【重点】
-
-> 缓冲流： `BufferedOutputStream` /` BufferedInputStream `
->
-> * 提⾼IO效率，减少访问磁盘的次数。 
-> * 数据存储在缓冲区中，flush是将缓存区的内容写⼊⽂件中，也可以直接close。
-> * 缓冲流、节点流、处理流（它不能直接和文件打交道）
 
 ## 匿名内部类
 
@@ -330,3 +411,21 @@ fis.read(byte[] b,int offset,int len) ;
 > * 主要是为了，Java程序申请的硬件资源，通知它们可以释放了
 > *  如果没有释放的话，会发生系统崩溃，因为比如OS一般都有同时可以打开多少个文件的限制（65536）
 
+## 序列化与反序列化
+
+**序列化**：就是把一个引用类型(对象)，拆分成最小的单位(byte)，以便今后数据字节流的形式存储在磁盘中或者是通过网络协议发送另一方，它是数据存储和发送的一种重要技术。(对象序列化是对象持久化的一种实现方法)。
+
+**反序列化**：根据序列化保存的信息重建对象的过程。
+
+> 序列化：将`java`对象转化诶字节序列的过程。
+>
+> 反序列化：将字节序列转化`java`对象的过程。
+
+### 序列化细节
+
+* 需要被序列化的类一定要实现`java.io.Serializable`接口：因为`ObjectOutputStream`在序列化的时候，会有一个类型检测
+* `serialVersionUID`相当于一个防伪编码，作用是为了在序列化与反序列化的过程中，预防有人篡改字节码中的信息；`JVM`在反序列化的时候，会去识别这个“防伪编码”，作用有点类似于`MD5`校验
+
+> * 对象流读到流的末尾，会抛出异常`EOFException`
+> * 如果属性不想被序列化，那么可以使⽤transient关键字修饰 
+> * 类实现了`Serializable` 接⼝，会⾃动⽣成⼀序列化`id`(序列化和反序列的id要保证⼀致)
