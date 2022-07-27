@@ -242,6 +242,10 @@ TreeSet 在存储元素的时候，会调⽤ compareTo ⽅法。
 1. 排序: 返回值⼤于0升序，返回值⼩于0降序 
 2. 去重(返回值为0) TreeSet 认为返回0，两个对象就是相同的对象
 
+> * TreeSet集合在保存对象元素的时候，对象必须要实现Comparable接⼝重写compareTo⽅法。
+> *  TreeSet的去重原理为：如果compareTo⽅法的返回值为0，则认为是相同的对象
+> * 如果compareTo⽅法的返回⼤于0则是升序排序，⼩于0则是降序排序
+
 ### Map集合
 
 #### Map集合特点

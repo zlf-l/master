@@ -4,10 +4,10 @@
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
     * [JavaSE-集合](backstage/JavaSE/JavaSE-%E9%9B%86%E5%90%88.md)
     * [JavaSE-异常/IO](backstage/JavaSE/JavaSE-%E5%BC%82%E5%B8%B8%E3%80%81IO.md)
+    * [JavaSE-多线程](backstage/JavaSE/JavaSE-%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
     * [JavaSE-排序](backstage/JavaSE/排序算法.md)
   * Java Web
     * [JavaWeb-网络编程](backstage/Java%20Web/JavaWeb-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
-    * [JavaWeb-多线程](backstage/Java%20Web/JavaWeb-%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
   * Spring
     * [Spring](backstage/Spring/)
 * 前端
