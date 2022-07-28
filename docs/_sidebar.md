@@ -27,6 +27,19 @@
     * [Java语法基础](class_document/01_Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md)
     * [Java面向对象编程](class_document/02_Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md)
     * [Java高级程序设计](class_document/03_Java%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
+    * ----------------------------------------
+    * [计算机介绍](class_document/before/chapter-1%E7%AB%A0.md)
+    * [Java基础介绍](class_document/before/chapter-2%E7%AB%A0.md)
+    * [Java基础语法](class_document/before/chapter-3%E7%AB%A0.md)
+    * [语句控制\键盘输入](class_document/before/chapter-4%E7%AB%A0.md)
+    * [循环\Random类](class_document/before/chapter-5%E7%AB%A0.md)
+    * [方法](class_document/before/chapter-6%E7%AB%A0.md)
+    * [数组](class_document/before/chapter-7%E7%AB%A0.md)
+    * [二位数组\排序](class_document/before/chapter-8%E7%AB%A0.md)
+    * [对象\类\构造方法](class_document/before/chapter-9%E7%AB%A0.md)
+    * [封装](class_document/before/java%E7%9A%84%E5%B0%81%E8%A3%85.md)
+    * [修饰符](class_document/before/java%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6.md)
+    * [面向对象与面向过程的区别](class_document/before/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB.md)
   * JavaWeb
     * [JavaWeb](class_document/JavaWeb.md)
   * MySQL
