@@ -2,7 +2,7 @@
   * JavaSE
     * [JavaSE-语法](backstage/JavaSE/JavaSE.md)
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-面向对象.md)
-    * [JavaSE-集合](backstage/JavaSE/JavaSE-集合.md)
+    * [JavaSE-集合/泛型](backstage/JavaSE/JavaSE-集合.md)
     * [JavaSE-异常/IO](backstage/JavaSE/JavaSE-异常、IO.md)
     * [JavaSE-多线程](backstage/JavaSE/JavaSE-多线程.md)
     * [JavaSE-Lambda&函数接口&Stream](backstage/JavaSE/Lambda&函数接口&Stream.md)
@@ -28,6 +28,7 @@
     * [Java语法基础](class_document/01_Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md)
     * [Java面向对象编程](class_document/02_Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md)
     * [Java高级程序设计](class_document/03_Java%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
+    - [第一阶段总结](class_document/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93.md)
     * ----------------------------------------
     * [计算机介绍](class_document/before/chapter-1%E7%AB%A0.md)
     * [Java基础介绍](class_document/before/chapter-2%E7%AB%A0.md)
@@ -42,6 +43,8 @@
     * [修饰符](class_document/before/java%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6.md)
     * [面向对象与面向过程的区别](class_document/before/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB.md)
   * JavaWeb
+    
     * [JavaWeb](class_document/JavaWeb.md)
   * MySQL
+    
     * [MySQL](class_document/MySQL.md)
