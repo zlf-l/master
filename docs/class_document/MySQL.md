@@ -66,6 +66,7 @@ select first_name,last_name,points,points*0.9 as '折 扣' from customers;
 select distinct state from customers;
 
 -- 练习：查询商品表（名称、单价、1.1倍单价-别名‘新单价’）
+SELECT `name`,unit_price,unit_price*1.1 as '新单价' FROM products;
 ```
 
 ### 2.3 where子句
@@ -83,6 +84,9 @@ select * from customers where state='VA';
 select * from customers where birth_date>'1990-01-01';
 
 -- 练习：查询2019年发生的所有订单
+SELECT * FROM orders WHERE order_date > '2019-1-1' AND order_date<'2020-1-1';
+SELECT * FROM orders WHERE order_date BETWEEN  '2019-1-1' AND '2019-12-31';
+
 
 -- 使用and、or、not组合多个条件
 select * from customers where birth_date>'1990-01-01' and points>1000;
@@ -98,17 +102,20 @@ select * from customers where not(birth_date>'1990-01-01' or points>1000);
 select * from customers where (birth_date<='1990-01-01' and points<=1000);
 
 -- 练习：查询订单明细表，提取订单编号为6，且总价大于30的记录
+SELECT * FROM order_items oi WHERE oi.order_id = 6 and oi.unit_price*quantity >30;
 
 -- in表示一定范围
 select * from customers where state in('va','ga','fl');
 select * from customers where state not in('va','ga','fl');
 
 -- 练习：查询商品表，提取库存为49、38或72的记录
+select * from products where quantity_in_stock in(49,38,72);
 
 -- between，包含左右边界值
 select * from customers where points between 1000 and 3000;
 
 -- 练习：查询客户中生日在1990/1/1到2000/1/1之间的所有记录
+SELECT * FROM customers WHERE birth_date BETWEEN '1990-1-1' and '2000-1-1'; 
 
 -- like进行模糊查询，%任意多个任意字符 _任意一个字符
 select * from customers where last_name like 'b%'; -- 以b开头
@@ -116,8 +123,10 @@ select * from customers where last_name like '%b%'; -- 含有b字母
 select * from customers where last_name like '%b'; -- 以b结尾
 
 -- 练习：查询客户信息，地址中包含trail或avenue
+SELECT * FROM customers WHERE address LIKE '%trail%' or address LIKE '%avenue%';
 
 -- 练习：查询客户信息，电话号码以9结尾的
+SELECT * FROM customers WHERE phone LIKE '%9';
 
 -- 正则表达式查询
 -- ^ 字符串开始
@@ -130,9 +139,16 @@ select * from customers where last_name regexp '[a-h]e';
 
 -- 练习
 -- first_name 中有 elka 或 ambur
+SELECT * FROM customers WHERE first_name REGEXP '^elka|ambur';
+
 -- last_name 中有 ey 或 on
+select * from customers where last_name regexp '[gim]ey|on';
+
 -- last_name 以 my 开头 或 包含 se
+select * from customers where last_name  LIKE 'my%' or last_name LIKE '%se%';
+
 -- last_name 包含 br 或 bu
+select * from customers where last_name  LIKE '%br%' or last_name LIKE '%bu%';
 
 -- null查询
 select * from customers where phone is null;
