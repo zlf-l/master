@@ -1363,7 +1363,7 @@ update xxx set yy = json_remove(yy,'$.k4') where z = 1;
 #### 13.9.1 创建数据库
 
 ```sql
-create database if not exists sql_store2;
+create database if not exists sql_store2 character set utf8mb4;
 
 drop database if exists sql_test1;
 ```

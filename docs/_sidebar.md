@@ -2,8 +2,8 @@
   * JavaSE
     * [JavaSE-语法](backstage/JavaSE/JavaSE.md)
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-面向对象.md)
-    * [JavaSE-集合/泛型](backstage/JavaSE/JavaSE-集合.md)
-    * [JavaSE-异常/IO](backstage/JavaSE/JavaSE-异常、IO.md)
+    * [JavaSE-集合&泛型](backstage/JavaSE/JavaSE-集合.md)
+    * [JavaSE-异常&IO](backstage/JavaSE/JavaSE-异常、IO.md)
     * [JavaSE-多线程](backstage/JavaSE/JavaSE-多线程.md)
     * [JavaSE-Lambda&函数接口&Stream](backstage/JavaSE/Lambda&函数接口&Stream.md)
     * [JavaSE-排序](backstage/JavaSE/排序算法.md)
@@ -11,6 +11,8 @@
     * [JavaWeb-网络编程](backstage/Java%20Web/JavaWeb-网络编程.md)
   * Spring
     * [Spring](backstage/Spring/)
+  * MySQL
+    * [MySQL](backstage/MySQL/MySQL.md)
 * 前端
   * [javascript](frontstage/javascript/)
   * [echarts](frontstage/echarts/)
@@ -43,10 +45,8 @@
     * [修饰符](class_document/before/java%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6.md)
     * [面向对象与面向过程的区别](class_document/before/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB.md)
   * JavaWeb
-
     * [JavaWeb](class_document/JavaWeb.md)
   * MySQL
-  
     * [MySQL](class_document/MySQL.md)
   * React
     * [React](class_document/React%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md)
