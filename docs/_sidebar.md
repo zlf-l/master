@@ -13,6 +13,7 @@
     * [Spring](backstage/Spring/)
   * MySQL
     * [MySQL](backstage/MySQL/MySQL.md)
+    * [JDBC](backstage/MySQL/JDBC-基础.md)
 * 前端
   * [javascript](frontstage/javascript/)
   * [echarts](frontstage/echarts/)
