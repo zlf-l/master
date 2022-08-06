@@ -7,14 +7,15 @@
     * [JavaSE-多线程](backstage/JavaSE/JavaSE-多线程.md)
     * [JavaSE-Lambda&函数接口&Stream](backstage/JavaSE/Lambda&函数接口&Stream.md)
     * [JavaSE-排序](backstage/JavaSE/排序算法.md)
-    * [Object与Objects的区别](backstage/JavaSE/Object%E4%B8%8EObjects%E7%9A%84%E5%8C%BA%E5%88%AB.md)
+    * [Object与Objects的区别](backstage/JavaSE/Object与Objects的区别.md)
   * Java Web
     * [JavaWeb-网络编程](backstage/Java%20Web/JavaWeb-网络编程.md)
   * Spring
     * [Spring](backstage/Spring/)
   * MySQL
     * [MySQL](backstage/MySQL/MySQL.md)
-    * [JDBC](backstage/MySQL/JDBC-基础.md)
+    * [JDBC-基础](backstage/MySQL/JDBC-基础.md)
+    * [JDBC-高级](backstage/MySQL/JDBC-高级.md)
 * 前端
   * [javascript](frontstage/javascript/)
   * [echarts](frontstage/echarts/)
@@ -29,26 +30,26 @@
 * ========分割线========
 * 文档
   * JavaSE
-    * [Java语法基础](class_document/01_Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80.md)
-    * [Java面向对象编程](class_document/02_Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md)
-    * [Java高级程序设计](class_document/03_Java%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
-    - [第一阶段总结](class_document/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93.md)
+    * [Java语法基础](class_document/01_Java语法基础.md)
+    * [Java面向对象编程](class_document/02_Java面向对象编程.md)
+    * [Java高级程序设计](class_document/03_Java高级程序设计.md)
+    - [第一阶段总结](class_document/第一阶段总结.md)
     * ----------------------------------------
-    * [计算机介绍](class_document/before/chapter-1%E7%AB%A0.md)
-    * [Java基础介绍](class_document/before/chapter-2%E7%AB%A0.md)
-    * [Java基础语法](class_document/before/chapter-3%E7%AB%A0.md)
-    * [语句控制\键盘输入](class_document/before/chapter-4%E7%AB%A0.md)
-    * [循环\Random类](class_document/before/chapter-5%E7%AB%A0.md)
-    * [方法](class_document/before/chapter-6%E7%AB%A0.md)
-    * [数组](class_document/before/chapter-7%E7%AB%A0.md)
-    * [二维数组\排序](class_document/before/chapter-8%E7%AB%A0.md)
-    * [对象\类\构造方法](class_document/before/chapter-9%E7%AB%A0.md)
-    * [封装](class_document/before/java%E7%9A%84%E5%B0%81%E8%A3%85.md)
-    * [修饰符](class_document/before/java%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6.md)
-    * [面向对象与面向过程的区别](class_document/before/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB.md)
+    * [计算机介绍](class_document/before/chapter-1章.md)
+    * [Java基础介绍](class_document/before/chapter-2章.md)
+    * [Java基础语法](class_document/before/chapter-3章.md)
+    * [语句控制\键盘输入](class_document/before/chapter-4章.md)
+    * [循环\Random类](class_document/before/chapter-5章.md)
+    * [方法](class_document/before/chapter-6章.md)
+    * [数组](class_document/before/chapter-7章.md)
+    * [二维数组\排序](class_document/before/chapter-8章.md)
+    * [对象\类\构造方法](class_document/before/chapter-9章.md)
+    * [封装](class_document/before/java的封装.md)
+    * [修饰符](class_document/before/java的修饰符.md)
+    * [面向对象与面向过程的区别](class_document/before/面向过程和面向对象的区别.md)
   * JavaWeb
     * [JavaWeb](class_document/JavaWeb.md)
   * MySQL
     * [MySQL](class_document/MySQL.md)
   * React
-    * [React](class_document/React%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md)
+    * [React](class_document/React快速入门.md)

@@ -1,4 +1,4 @@
-# JDNC-基础
+# JDBC-基础
 
 ## JDBC简介
 

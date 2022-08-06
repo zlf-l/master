@@ -4,6 +4,8 @@
 
 https://thinkwon.blog.csdn.net/article/details/98844796
 
+https://blog.csdn.net/Bb15070047748/article/details/119349613
+
 集合是⼀种对象容器，⽤于存放对象 
 
 ### 集合架构
@@ -42,6 +44,32 @@ https://thinkwon.blog.csdn.net/article/details/98844796
 * Collections.reverse(List list)   将集合元素进⾏翻转
 * Collections.shuffle(List list)   将集合中的元素进⾏随机打乱
 * Collections.sort(List list)  按照字典顺序
+
+## List集合
+
+### List集合
+
+[List接口](https://so.csdn.net/so/search?q=List接口&spm=1001.2101.3001.7020)是单列集合的一个重要分支，下面主要有两个实现 `ArrayList `和`LinkedList`，List类型接口的特点是存储的元素是有序的，即存放进去是什么顺序，取出来还是什么顺序，也就是基于[线性](https://so.csdn.net/so/search?q=线性&spm=1001.2101.3001.7020)存储；因此在List接口中提供有大量根据索引来操作元素的方法；
+
+![image-20220806143820429](img/image-20220806143820429.png)
+
+#### List特点
+
+> 1. List接口存储的数据是有序排列的，原来存储的时候是什么顺序，取出来就什么顺序（Set接口存储的是无序的）；
+> 2. List接口为存储的每一个元素都分配了一个索引，通过索引我们可以精确的来访问某一个指定的元素；
+> 3.  List接口存储的数据允许存在重复，这与Set接口不同（Set接口不允许存储相同的元素）;
+
+#### List接口
+
+List是Collection的子接口，因此Collection中存在的方法List都存在；因为List的特点是有序，因此除Collection接口提供的方法之外List还添加了许多与顺序相关的方法，例如指定顺序插入，指定顺序删除，指定顺序替换等；
+
+#### 常用方法
+
+> * public boolean add(int index, E element)：将指定的元素，添加到该集合中的指定位置上。
+> * public E get(int index)：返回集合中指定位置的元素。
+> * public boolean remove(int index)： 移除列表中指定位置的元素, 返回的是被移除的元素。
+> * public E set(int index, E element)：用指定元素替换集合中指定位置的元素,返回值的更新前的元素。
+> * List<E> subList(int fromIndex, int toIndex)：从fromIndex下标截取到toIndex下标。
 
 ### ArrayList类
 
@@ -184,7 +212,11 @@ Vector
 > 7.  原生elementAt==get等
 > 8. elements返回值为Enumeration，本质为迭代器
 
+## Set集合
 
+Set接口和List接口一样，继承与Collection接口，也是一个单列集合；Set集合中的方法和Collection基本一致；并没有对`Collection`接口进行功能上的扩充，只是底层实现的方式不同了（采用的数据结构不一样）
+
+![image-20220806144810863](img/image-20220806144810863.png)
 
 ### HashSet类
 
@@ -278,6 +310,8 @@ TreeSet 在存储元素的时候，会调⽤ compareTo ⽅法。
 
 ####  HashMap实际应⽤ 
 
+https://blog.csdn.net/Bb15070047748/article/details/119350110
+
 > * 可以使⽤Map 表⽰⼀个实体类
 > * 可以使⽤List<Map<String,Object>> 表⽰⼀个实体类集合
 
@@ -317,7 +351,7 @@ TreeSet 在存储元素的时候，会调⽤ compareTo ⽅法。
 9. HashMap添加元素的过程 
 10. 谈谈了解的数据结构
 
-### 迭代器
+### 迭代器(Iterator)
 
 #### 原理 
 
@@ -327,7 +361,22 @@ TreeSet 在存储元素的时候，会调⽤ compareTo ⽅法。
 
 迭代：挨个儿访问其中的每一个元素 ，获取到能访问这个容器中的元素的一个指针，它默认是指向这个容器中第一个元素的上方
 
+#### Iterator接口
+
+在开发中，经常需要遍历集合中的所有元素。针对这种需求，JDK专门提供了一个接口`java.util.Iterator`。Iterator接口也是Java集合中的一员，但它与Collection、Map接口有所不同，Collection接口与Map接口主要用于存储元素，而Iterator主要用于迭代访问（即遍历）Collection中的元素，因此Iterator对象也被称为迭代器。
+
+**迭代**：即Collection集合元素的通用获取方式。在取元素之前先要判断集合中有没有元素，如果有，就把这个元素取出来，继续在判断，如果还有就再取出出来。一直把集合中的所有元素全部取出。这种取出方式专业术语称为迭代。
+
 **迭代器的作⽤：获取集合中的所有的元素**
+
+#### 常用方法
+
+~~~java
+public E next():返回迭代的下一个元素。
+public boolean hasNext():如果仍有元素可以迭代，则返回 true。
+~~~
+
+迭代器内部有个指针，默认指向第0行数据（没有指向任何数据），可以通过`hashNext()`方法来判断指针下一位指向的行是否有数据，通过`next()`方法可以让指针往下移动，通过hashNext()和next()方法我们可以利用while循环来变量整个迭代器的内容；
 
 #### 迭代器使⽤常⻅问题
 

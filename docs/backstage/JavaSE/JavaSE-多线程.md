@@ -1,12 +1,12 @@
 # JavaSE-多线程
 
-多线程参考：https://blog.csdn.net/Evankaka/article/details/44153709
+https://blog.csdn.net/Evankaka/article/details/44153709
 
 https://blog.csdn.net/qq_35598736/article/details/108431422?spm=1001.2014.3001.5502
 
+https://blog.csdn.net/Bb15070047748/article/details/119381337
+
 # 基础-线程
-
-
 
 ## 进程与线程
 
@@ -184,7 +184,11 @@ public void incrementTotalBytes(){
 
 Lambda表达式参考：https://jimmysun.blog.csdn.net/article/details/102710138
 
-线程池参考：https://jimmysun.blog.csdn.net/article/details/95225769
+线程池参考：
+
+https://jimmysun.blog.csdn.net/article/details/95225769
+
+https://blog.csdn.net/Bb15070047748/article/details/119424448
 
 ## 线程池
 

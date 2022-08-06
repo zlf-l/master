@@ -460,3 +460,16 @@ jdk1.5 之后的装箱和拆箱
   3. StringBuffer是线程安全的，所以效率低 StringBuilder是线程不安全的，所以效率⾼ 
 
   总结：在⼤量的字符串拼接的时候，使⽤ StringBuffer、StringBuilder。⽽不考虑线程安全的时候，选择 StringBuilder，否则选择StringBuffer
+
+
+
+## 其他
+
+【ORM】 Object Relational Mapping `Java Persistent API`、`Hibernate(Gavin King)`、`Mybatis`、`MybatisPlus`、`Spring`
+ 把面向关系的数据转换为面向对象的数据
+
+我们的MySQL是一个面向关系的DBMS，又称为RDBMS，所以里面的表，都是依赖主外键关联的，
+
+* 数据的最小单元，就是值，它们是是存放在表中的列上(column)的，对应实例的某一个属性(field、property)
+* 表中的一行(row)数据对应OOP中某一个类的实例(instance)
+*  一张表对应OOP的一个class类型
