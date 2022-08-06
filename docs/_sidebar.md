@@ -2,8 +2,8 @@
   * JavaSE
     * [JavaSE-语法](backstage/JavaSE/JavaSE.md)
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-面向对象.md)
-    * [JavaSE-集合&泛型](backstage/JavaSE/JavaSE-集合.md)
-    * [JavaSE-异常&IO](backstage/JavaSE/JavaSE-异常、IO.md)
+    * [JavaSE-集合&泛型](backstage/JavaSE/JavaSE-集合&泛型.md)
+    * [JavaSE-异常&IO](backstage/JavaSE/JavaSE-异常&IO.md)
     * [JavaSE-多线程](backstage/JavaSE/JavaSE-多线程.md)
     * [JavaSE-Lambda&函数接口&Stream](backstage/JavaSE/Lambda&函数接口&Stream.md)
     * [JavaSE-排序](backstage/JavaSE/排序算法.md)
