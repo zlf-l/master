@@ -270,6 +270,12 @@ insert、delete、update
 
 [<<增删改](../../class_document/MySQL.md)
 
+## 索引
+
+https://blog.csdn.net/guorui_java/article/details/118558095
+
+https://blog.csdn.net/wangfeijiu/article/details/113409719
+
 ## count(*)、 count(1)、count(列名)区别
 
 **效果**

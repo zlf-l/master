@@ -17,8 +17,10 @@
     * [JDBC-基础](backstage/MySQL/JDBC-基础.md)
     * [JDBC-高级](backstage/MySQL/JDBC-高级.md)
 * 前端
-  * [javascript](frontstage/javascript/)
-  * [echarts](frontstage/echarts/)
+  * JavaScript
+    * [JavaScript-上课文档](frontstage/javascript/)
+  * Echarts
+    * [Echarts](frontstage/echarts/)
 * 工具
   * [Git](tools/Git/)
   * [Idea](tools/Idea/)
