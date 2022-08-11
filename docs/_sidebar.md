@@ -16,15 +16,22 @@
     * [MySQL](backstage/MySQL/MySQL.md)
     * [JDBC-基础](backstage/MySQL/JDBC-基础.md)
     * [JDBC-高级](backstage/MySQL/JDBC-高级.md)
+  * 设计模式
+    * [设计模式](backstage/设计模式/设计模式.md)
 * 前端
   * JavaScript
-    * [JavaScript-上课文档](frontstage/javascript/)
+    * [JavaScript-基础](frontstage/javascript/JavaScript基础.md)
+    * [JavaScript-高级](frontstage/javascript/JavaScript高级.md)
+    * [JavaScript-上课文档](frontstage/javascript/JavaScript快速入门.md)
   * Echarts
     * [Echarts](frontstage/echarts/)
+  * React
+    * [React-模板快捷键](frontstage/React/React-模板快捷键.md)
+    * [React-快速入门](class_document/React快速入门.md)
 * 工具
-  * [Git](tools/Git/)
-  * [Idea](tools/Idea/)
-  * [日常常用](tools/Shortcuts/)
+  * [Git](tools/Git/README.md)
+  * [Idea](tools/Idea/README.md)
+  * [日常常用](tools/Shortcuts/README.md)
 * ========分割线========
 * 题目
   * Java
