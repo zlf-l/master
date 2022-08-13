@@ -1320,10 +1320,10 @@ const arr = [1, 2, 3];
 //第一次 total-0，item-1
 //第二次 total-1，item-2
 //第三次 total-3，item-3
-const sum = arr.reduce((total, current) => accumulated + current, 0);
+const sum = arr.reduce((total, current) => total + current, 0);
 //第一次 total-1 item-2
 //第二次 total-3 item-3
-const sum = arr.reduce((total, current) => accumulated + current);
+const sum = arr.reduce((total, current) => total + current);
 console.log(sum);
 ```
 
