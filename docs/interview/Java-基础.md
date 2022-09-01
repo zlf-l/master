@@ -256,3 +256,179 @@
 ## 25、try、catch、finally的使用
 
 `try`、`catch`、`finally `的基础⽤法，在 `return `前会先执⾏ `finally `语句 块，所以是先输出 `finally `⾥的结果，再输出`try`或`catch`里面的`return`。(finally ⾥⾯使⽤ return 仅存在于⾯试题中，实际开发中千万不要这么⽤。)
+
+## 26、Error和Exception的区别
+
+都是`Throwable`的子类，用于表示程序出现不正常的情况。
+
+区别：
+
+* `Error`：表示系统级错误和程序出现不必处理的异常，是恢复不是不可能，但很难情况下的一种严重问题，如内存溢出，不可能指望程序能自己解决。
+* `Exception`：表示需要捕捉或需要程序进行处理的异常，是一种设计或实现的问题，表示如果程序运行正常，从不会发生的情况。
+
+## 27、JDK 1.8 后的新特性
+
+* #### 接口默认方法
+
+  `Java8` 允许给借口添加一个非抽象的方法实现，只需要使用`default`关键字修饰即可。
+
+  从 J`ava8`开始，引⼊了接⼝默认⽅法，这样的好处也是很明显的，**⾸先解决了 `Java8 `以前版本接⼝兼容性问题**，同时对于我们以后的程序开发，也**可以在接⼝⼦类中直接使⽤接⼝默认⽅法**，⽽不再需要 在各个⼦类中各⾃实现响应接⼝⽅法。
+
+  ```java
+  public interface IMathOperation {
+      /**
+      * 定义接⼝默认⽅法 ⽀持⽅法形参
+      */
+      default void print(){
+      	System.out.println("这是数值运算基本接⼝。。。");
+      }
+      /**
+      * 定义静态默认⽅法
+      */
+      static void version(){
+      	System.out.println("这是1.0版简易计算器");
+      }
+  }
+  ```
+
+  ```java
+  public class MathOperationImpl implements IMathOperation {
+      @Override
+      public int add(int a, int b) {
+          // ⼦类中可以直接调⽤⽗类接⼝默认⽅法
+          IMathOperation.super.print();
+          // 调⽤⽗类静态默认⽅法
+          IMathOperation.version();
+          return a+b;
+      }
+  }
+  
+  ```
+
+* #### Lambda 表达式和函数式接口
+
+  `Lambda `表达式本质上是一段匿名内部类，也可以是一段传递代码。`Lambda `允许把函数作为⼀个⽅法的参数（函数作为参数传递到⽅法中），使⽤ `Lambda `表达式使代码更加简洁，但是也不要滥⽤，否则会有可读性等问题，《Effective Java》作者 Josh Bloch 建议使⽤ `Lambda `表达式最好不要超过3⾏。
+
+  匿名内部类
+
+  ```java
+  @Test
+  public void test1(){
+      Comparator<Integer> com = new Comparator<Integer>() {
+          @Override
+          public int compare(Integer o1, Integer o2) {
+          	return Integer.compare(o1, o2);
+          }
+      };
+      TreeSet<Integer> treeSet = new TreeSet<>(com);
+  }
+  ```
+
+  `Lambda `表达式
+
+  ~~~java
+  Comparator<Integer> com = (x, y) -> Integer.compare(x, y);
+  ~~~
+
+  函数式接口
+
+  `Lambda`表达式需要函数式接口的支持。
+
+  函数式接口：只包含一个抽象方法的接口，称为函数是接口。（可以通过 `Lambda `表达式来创建该接⼝的对 象。（若 `Lambda`表达式抛出⼀个受检异常，那么该异常需要在⽬标接⼝的抽象⽅法上进⾏声明）。 可以在任意函数式接⼝上使⽤ `@FunctionalInterface` 注解，这样做可以检查它是否是⼀个函数式接 ⼝，同时 `javadoc` 也会包含⼀条声明，说明这个接⼝是⼀个函数式接⼝。）
+
+  ~~~java
+  @FunctionalInterface
+  public interface MyFunc <T> {
+  	public T getValue(T t);
+  }
+  public String handlerString(MyFunc<String> myFunc, String str){
+  	return myFunc.getValue(str);
+  }
+  ~~~
+
+  ~~~java
+  @Test
+  public void test6(){
+  	String str = handlerString((s) -> s.toUpperCase(), "binghe");
+  	System.out.println(str);//输出结果BINGHE
+  }
+  ~~~
+
+* #### Stream API
+
+  ⽤函数式编程⽅式在集合类上进⾏复杂操作的⼯具，配合`Lambda`表达式可以⽅便 的对集合进⾏处理。`Java8 `中处理集合的关键抽象概念，它可以指定你希望对集合进⾏的操作，可以 执⾏⾮常复杂的查找、过滤和映射数据等操作。使⽤`Stream API `对集合数据进⾏操作，就类似于使 ⽤ `SQL `执⾏的数据库查询。也可以使⽤ `Stream API `来并⾏执⾏操作。简⽽⾔之，`Stream API `提供了 ⼀种⾼效且易于使⽤的处理数据的⽅式。
+
+  ~~~java
+  List<Teacher> teacherList = new ArrayList<>();
+  teacherList.add(new Teacher("张磊",22,"zl"));
+  teacherList.add(new Teacher("李鹏",36,"lp"));
+  teacherList.add(new Teacher("刘敏",50,"lm"));
+  teacherList.add(new Teacher("宋亚楠",62,"syn"));
+  teacherList.add(new Teacher("彩彬",18,"cb"));
+  //filter 过滤
+  List<Teacher> list = teacherList.stream().filter(x -> x.getAge() > 30).collect(Collectors.toList());
+  //joining拼接 所有⽼师姓名拼接成字符串
+  String nameJoin = teacherList.stream().map(Teacher::getName).collect(Collectors.joining(","));
+  //排序
+  List sortList = teacherList.stream().sorted(Comparator.comparing(Teacher::getAge).reversed()).collect(Collectors.toList());
+  System.out.println(nameJoin);
+  System.out.println(list);
+  System.out.println("按年龄降序: "+sortList);
+  ~~~
+
+  ~~~java
+  输出结果
+  [Teacher(name=李鹏, age=36, nikeName=lp), Teacher(name=刘敏, age=50,nikeName=lm), Teacher(name=宋亚楠, age=62, nikeName=syn)]
+  张磊,李鹏,刘敏,宋亚楠,彩彬
+  按年龄降序: [Teacher(name=宋亚楠, age=62, nikeName=syn), Teacher(name=刘敏,age=50, nikeName=lm), Teacher(name=李鹏, age=36,nikeName=lp), Teacher(name=张磊, age=22, nikeName=zl), Teacher(name=彩彬, age=18, nikeName=cb)]
+  ~~~
+
+* #### 方法引用
+
+  ⽅法引⽤提供了⾮常有⽤的语法，可以直接引⽤已有Java类或对象（实例）的⽅法或 构造器。与lambda联合使⽤，⽅法引⽤可以使语⾔的构造更紧凑简洁，减少冗余代码。
+
+  ⽅法引⽤就是操作符“::”将⽅法名和对象或类的名字分隔开来。 
+
+  如下三种使⽤情况： 
+
+  * 对象::实例⽅法 
+  * 类::静态⽅法 
+  *  类::实例⽅法
+
+  ~~~java
+  (x) -> System.out.println(x);//等同于System.out::println
+  BinaryOperator<Double> bo = (x, y) -> Math.pow(x, y);//等同于 BinaryOperator<Double> bo = Math::pow;
+  
+  ~~~
+
+* #### 日期时间API
+
+  `Java8 `引⼊了新的⽇期时间`API`改进了⽇期时间的管理。在`Java 8`之前，所有关于时间和⽇期的`API`都存在各种使⽤⽅⾯的缺陷。主要有：
+
+  * `Java`的`java.util.Date`和`java.util.Calendar`类易⽤性差，不⽀持时区，⽽且他们都不是线程安全的。
+  * ⽤于格式化⽇期的类`DateFormat`被放在`java.text`包中，它是⼀个抽象类，所以我们需要实例化 ⼀个`SimpleDateFormat`对象来处理⽇期格式化，并且`DateFormat`也是⾮线程安全，这意味着 如果你在多线程程序中调⽤同⼀个`DateFormat`对象，会得到意想不到的结果。
+  * 对⽇期的计算⽅式繁琐，⽽且容易出错，因为⽉份是从`0`开始的，从`Calendar`中获取的⽉份 需要加⼀才能表⽰当前⽉份。
+
+  由于以上这些问题，出现了⼀些三⽅的⽇期处理框架，例如`Joda-Time`，`date4j`等开源项⽬。但是， `Java`需要⼀套标准的⽤于处理时间和⽇期的框架，于是`Java 8`中引⼊了新的⽇期`API`。新的⽇期`API`是 `JSR-310`规范的实现，`Joda-Time`框架的作者正是`JSR-310`的规范的倡导者，所以能从`Java 8`的⽇期 `API`中看到很多`Joda-Time`的特性。
+
+  Java 8的⽇期和时间类包含`LocalDate `、 `LocalTime `、 `Instant `、 `Duration `以及 `Period `，这些类都包含在 `java.time` 包中。
+
+* #### Optional 类
+
+  著名的 `NullPointerException `是引起系统失败最常⻅的原因。很久以前 `Google Guava` 项⽬引⼊了 `Optional `作为解决空指针异常的⼀种⽅式，不赞成代码被 `null `检查的代码污染， 期望程序员写整洁的代码。受`Google Guava`的⿎励，`Optional `现在是`Java 8`库的⼀部分。
+
+* #### 新⼯具
+
+  新的编译⼯具，如：`Nashorn`引擎 `jjs`、 类依赖分析器 `jdeps`。
+
+## 28、Java多态具体表现
+
+多态要有动态绑定，否则就不是多态，方法重载也不是多态（因为方法重载是编译期决定好的，没有后期也就是运行期的动态绑定）
+
+多态要满足三个条件：有继承、有重写、有父类引用指向子类对象
+
+## 29、接口作用
+
+* 重要性：在Java中，abstract class和interface是支持抽象类定义的两种机制。而这两种机制，赋予了Java强大的面向对象的能力 。
+* 简单、规范性：如果开发的项目比较庞大，那么就需要能够理清业务的架构师来定义主要的接口，这些就接口不仅可以高数开发人员需要实现的业务，而且还将命名规范也限制住了（避免一些开发人员随便命名导致其他的开发人员无法看明白）。
+
