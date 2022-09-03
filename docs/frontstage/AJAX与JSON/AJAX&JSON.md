@@ -154,9 +154,62 @@ function callback(){
 }
 ```
 
+## JSON
 
+* `AJAX`就是一种使用JavaScript在前端页面不刷新的情况下和服务器进行数据交互。
 
+* `AJAX`既然是实现前后端之间异步通信的技术，必然要考虑如何将前端的数据提交到服务器，如何将服 务器的数据响应到前端并且能够被前端识别。 
 
+* `JSON`就是不同系统之间、前后端之间、不同语⾔之间进⾏数据交互所遵守的⼀种数据的格式。
 
+![image-20220901212733331](img/image-20220901212733331.png)
 
+### JSON数据格式
+
+* 对象和`Map`转换成`{key:value,key:value,...}`
+
+* 数组和集合转换成`[e1,e2,e3,...]`
+
+* `JSON`格式可以嵌套
+
+  ![image-20220901213028206](img/image-20220901213028206.png)
+
+### JSON格式转换
+
+#### 前端JS对象与JSON格式转换
+
+* JS对象转换成JSON格式字符串
+
+```js
+// 创建JS对象
+var obj = {stuNum:"10001",stuName:"张三"}
+obj.stuGender = "男";
+//将JS对象转换成json格式字符串
+var jsonStr = JSON.stringify(obj);
+```
+
+* 将JSON格式字符串转换成JS对象
+
+```js
+var obj2 = eval("("+jsonStr+")");
+```
+
+#### 后端Java对象与JSON格式转换
+
+> `FASTJson、GSon、JackSon`
+
+* 将JSON格式字符串转成Java对象
+
+```js
+//要求：json格式的字符串中的key 要和⽬标Java对象属性⼀致
+Gson gson = new Gson();
+Student student = gson.fromJson(str, Student.class);
+```
+
+* 将Java对象转换成JSON格式
+
+```js
+Student stu2 = new Student("10006","Lucy","⼥");
+String jsonStr = gson.toJson(stu2);
+```
 
