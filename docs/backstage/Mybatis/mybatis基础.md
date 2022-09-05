@@ -1,9 +1,3 @@
----
-typora-copy-images-to: img
----
-
-
-
 ### 一.Mybatis快速入门
 
 #### 1.1 框架介绍

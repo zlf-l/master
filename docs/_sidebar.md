@@ -27,12 +27,12 @@
     * [JDBC-基础](backstage/MySQL/JDBC-基础.md)
     * [JDBC-高级](backstage/MySQL/JDBC-高级.md)
     * JDBC
-      * [JDBC基础](backstage/MySQL/JDBC基础/JDBC基础.md)
-      * [JDBC高级](backstage/MySQL/JDBC高级/JDBC高级.md)
-    * [MySQL-基础](backstage/MySQL/MySQL基础/MySQL基础.md)
-    * [MySQL-进阶](backstage/MySQL/MySQL进阶/MySQL进阶.md)
-    * [MySQL-高级1](backstage/MySQL/MySQL高级/MySQL高级1.md)
-    * [MySQL-高级2](backstage/MySQL/MySQL高级/MySQL高级2.md)
+      * [JDBC基础](backstage/MySQL/JDBC/JDBC基础.md)
+      * [JDBC高级](backstage/MySQL/JDBC/JDBC高级.md)
+    * [MySQL-基础](backstage/MySQL/MySQL/MySQL基础.md)
+    * [MySQL-进阶](backstage/MySQL/MySQL/MySQL进阶.md)
+    * [MySQL-高级1](backstage/MySQL/MySQL/MySQL高级1.md)
+    * [MySQL-高级2](backstage/MySQL/MySQL/MySQL高级2.md)
   * Mybatis
     * [Mybatis基础](backstage/Mybatis/mybatis基础.md)
     * [Mybatis进阶](backstage/Mybatis/mybatis进阶.md)

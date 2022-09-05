@@ -1,7 +1,3 @@
----
-typora-copy-images-to: img
----
-
 ### 一.接口代理方式实现Dao
 
 #### 1.1 代理开发方式介绍
