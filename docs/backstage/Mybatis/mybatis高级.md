@@ -1,6 +1,6 @@
-### 一.Mybatis注解开发单表操作
+# 一.Mybatis注解开发单表操作
 
-#### 1.1 MyBatis的常用注解 
+## 1.1 MyBatis的常用注解 
 
 这几年来注解开发越来越流行，Mybatis也可以使用注解开发方式，这样我们就可以减少编写Mapper
 
@@ -22,7 +22,7 @@
 
 @Many：实现一对多结果集封装
 
-#### 1.2 MyBatis的增删改查 
+## 1.2 MyBatis的增删改查 
 
 我们完成简单的student表的增删改查的操作
 
@@ -180,7 +180,7 @@
 </mappers>
 ```
 
-#### 1.3 注解开发总结
+## 1.3 注解开发总结
 
 注解可以简化开发操作，省略映射配置文件的编写。 
 
@@ -202,9 +202,9 @@
 
   
 
-### 二.MyBatis注解开发的多表操作
+# 二.MyBatis注解开发的多表操作
 
-#### 2.1  MyBatis的注解实现复杂映射开发
+## 2.1  MyBatis的注解实现复杂映射开发
 
 实现复杂关系映射之前我们可以在映射文件中通过配置<resultMap>来实现，使用注解开发后，我们可以使用@Results注解，@Result注解，@One注解，@Many注解组合完成复杂关系的配置
 
@@ -212,15 +212,15 @@
 
 ![](img\图片11.png)
 
-#### 2.2  一对一查询
+## 2.2  一对一查询
 
-##### 2.2.1 一对一查询的模型
+### 2.2.1 一对一查询的模型
 
 一对一查询的需求：查询一个用户信息，与此同时查询出该用户对应的身份证信息
 
 ![1590942011460](img/1590942011460.png)
 
-##### 2.2.2 一对一查询的语句
+### 2.2.2 一对一查询的语句
 
 对应的sql语句：
 
@@ -230,9 +230,9 @@ SELECT * FROM card；
 SELECT * FROM person WHERE id=#{id};
 ```
 
-##### 
+## 
 
-##### 2.2.3 创建PersonMapper接口
+### 2.2.3 创建PersonMapper接口
 
 ```java
 public interface PersonMapper {
@@ -243,7 +243,7 @@ public interface PersonMapper {
 
 ```
 
-##### 2.2.4 使用注解配置Mapper
+### 2.2.4 使用注解配置Mapper
 
 ```java
 public interface CardMapper {
@@ -267,7 +267,7 @@ public interface CardMapper {
 }
 ```
 
-##### 2.2.5 测试类
+### 2.2.5 测试类
 
 ```java
 public class Test01 {
@@ -302,7 +302,7 @@ public class Test01 {
 
 ```
 
-##### 2.2.6  一对一配置总结
+### 2.2.6  一对一配置总结
 
 ~~~xml-dtd
 @Results：封装映射关系的父注解。
@@ -318,15 +318,15 @@ public class Test01 {
 
 
 
-#### 2.3 一对多查询
+## 2.3 一对多查询
 
-##### 2.3.1 一对多查询的模型
+### 2.3.1 一对多查询的模型
 
 一对多查询的需求：查询一个课程，与此同时查询出该该课程对应的学生信息
 
 ![1590942772892](img/1590942772892.png)
 
-##### 2.3.2 一对多查询的语句
+### 2.3.2 一对多查询的语句
 
 对应的sql语句：
 
@@ -336,9 +336,9 @@ SELECT * FROM classes
 SELECT * FROM student WHERE cid=#{cid}
 ```
 
-##### 
+## 
 
-##### 2.3.3 创建StudentMapper接口
+### 2.3.3 创建StudentMapper接口
 
 ```java
 public interface StudentMapper {
@@ -349,7 +349,7 @@ public interface StudentMapper {
 
 ```
 
-##### 2.3.4 使用注解配置Mapper
+### 2.3.4 使用注解配置Mapper
 
 ```java
 public interface ClassesMapper {
@@ -373,7 +373,7 @@ public interface ClassesMapper {
 }
 ```
 
-##### 2.3.5 测试类
+### 2.3.5 测试类
 
 ```java
 public class Test01 {
@@ -412,7 +412,7 @@ public class Test01 {
 
 ```
 
-##### 2.3.6 一对多配置总结
+### 2.3.6 一对多配置总结
 
 ~~~xml-dtd
 @Results：封装映射关系的父注解。
@@ -428,15 +428,15 @@ public class Test01 {
 
 
 
-#### 2.4  多对多查询
+## 2.4  多对多查询
 
-##### 2.4.1 多对多查询的模型
+### 2.4.1 多对多查询的模型
 
 多对多查询的需求：查询学生以及所对应的课程信息
 
 ![1590943489827](img/1590943489827.png)
 
-##### 2.4.2 多对多查询的语句
+### 2.4.2 多对多查询的语句
 
 对应的sql语句：
 
@@ -447,7 +447,7 @@ SELECT c.id,c.name FROM stu_cr sc,course c WHERE sc.cid=c.id AND sc.sid=#{id}
 
 
 
-##### 2.4.3  添加CourseMapper 接口方法
+### 2.4.3  添加CourseMapper 接口方法
 
 ```java
 public interface CourseMapper {
@@ -458,7 +458,7 @@ public interface CourseMapper {
 
 ```
 
-##### 2.4.4 使用注解配置Mapper
+### 2.4.4 使用注解配置Mapper
 
 ```java
 public interface StudentMapper {
@@ -484,7 +484,7 @@ public interface StudentMapper {
 
 ```
 
-##### 2.4.5 测试类
+### 2.4.5 测试类
 
 ```java
 public class Test01 {
@@ -522,7 +522,7 @@ public class Test01 {
 }
 ```
 
-##### 2.4.6 多对多配置总结
+## 2.4.6 多对多配置总结
 
 ~~~xml-dtd
 @Results：封装映射关系的父注解。
@@ -538,15 +538,15 @@ public class Test01 {
 
 
 
-### 三.构建sql
+# 三.构建sql
 
-#### 3.1 SQL 构建对象介绍    
+## 3.1 SQL 构建对象介绍    
 
 * 我们之前通过注解开发时，相关 SQL 语句都是自己直接拼写的。一些关键字写起来比较麻烦、而且容易出错。 
 *  MyBatis 给我们提供了 org.apache.ibatis.jdbc.SQL 功能类，专门用于构建 SQL 语句    
 * ![1590943921472](img/1590943921472.png)
 
-#### 3.2  查询功能的实现
+## 3.2  查询功能的实现
 
 * 定义功能类并提供获取查询的 SQL 语句的方法。 
 
@@ -556,7 +556,7 @@ public class Test01 {
 
    method 属性：指定调用方法    
 
-#### 3.3  新增功能的实现
+## 3.3  新增功能的实现
 
 * 定义功能类并提供获取新增的 SQL 语句的方法。 
 
@@ -566,7 +566,7 @@ public class Test01 {
 
   method 属性：指定调用方法    
 
-#### 3.4  修改功能的实现
+## 3.4  修改功能的实现
 
 * 定义功能类并提供获取修改的 SQL 语句的方法。 
 
@@ -576,7 +576,7 @@ public class Test01 {
 
    method 属性：指定调用方法    
 
-#### 3.5  删除功能的实现
+## 3.5  删除功能的实现
 
 * 定义功能类并提供获取删除的 SQL 语句的方法。 
 
@@ -586,15 +586,15 @@ public class Test01 {
 
    method 属性：指定调用方法    
 
-### 四.综合案例
+# 四.综合案例
 
-#### 4.1  系统介绍
+## 4.1  系统介绍
 
 ​         我们之前在做学生管理系统时，使用的是原始JDBC操作数据库的，操作非常麻烦，现在我们使用MyBatis操作数据库，简化Dao的开发。
 
-#### 4.2  环境搭建（略）
+## 4.2  环境搭建（略）
 
-#### 4.3  代码改造
+## 4.3  代码改造
 
 * 步骤一：新增MyBatis配置文件 `MyBatisConfig.xml`
 

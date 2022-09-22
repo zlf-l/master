@@ -1,6 +1,6 @@
-### 一.Mybatis快速入门
+# 一.Mybatis快速入门
 
-#### 1.1 框架介绍
+## 1.1 框架介绍
 
 * 框架是一款半成品软件，我们可以基于这个半成品软件继续开发，来完成我们个性化的需求！
 
@@ -10,7 +10,7 @@
 
  
 
-#### 1.2 ORM介绍
+## 1.2 ORM介绍
 
 * ORM(Object Relational Mapping)： 对象关系映射
 
@@ -24,15 +24,15 @@
 
 ![1590919824416](img/1590919824416.png)
 
-#### 1.3 原始jdbc操作（查询数据）
+## 1.3 原始jdbc操作（查询数据）
 
 ![1590915350408](img/1590915350408.png)
 
-#### 1.4原始jdbc操作（插入数据）
+## 1.4原始jdbc操作（插入数据）
 
 ![1590915389449](img/1590915389449.png)
 
-#### 1.5 原始jdbc操作的分析
+## 1.5 原始jdbc操作的分析
 
 * 原始 JDBC 的操作问题分析 
 
@@ -49,7 +49,7 @@
   2. 将 sql 语句抽取到配置文件中。 
   3. 使用反射、内省等底层技术，将实体与表进行属性与字段的自动映射    
 
-#### 1.6 什么是Mybatis
+## 1.6 什么是Mybatis
 
 mybatis 是一个优秀的基于java的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身，而不需要花费精力去处理加载驱动、创建连接、创建statement等繁杂的过程。
 
@@ -59,7 +59,7 @@ mybatis通过xml或注解的方式将要执行的各种 statement配置起来，
 
 MyBatis官网地址：<http://www.mybatis.org/mybatis-3/> 
 
-#### 1.7  Mybatis的快速入门
+## 1.7  Mybatis的快速入门
 
 **MyBatis开发步骤：**
 
@@ -75,7 +75,7 @@ MyBatis官网地址：<http://www.mybatis.org/mybatis-3/>
 
 ⑥编写测试类
 
-##### 1.7.1  环境搭建
+### 1.7.1  环境搭建
 
 1)导入MyBatis的jar包
 
@@ -174,7 +174,7 @@ public class Student {
 
 ```
 
-##### 1.7.2编写测试代码
+### 1.7.2编写测试代码
 
 ```java
 /*
@@ -195,7 +195,7 @@ public class StudentController {
 }
 ```
 
-#### 1.8 知识小结
+## 1.8 知识小结
 
 * 框架       
 
@@ -211,9 +211,9 @@ public class StudentController {
 
   
 
-### 二. MyBatis的相关api
+# 二. MyBatis的相关api
 
-#### 2.1 Resources
+## 2.1 Resources
 
 * org.apache.ibatis.io.Resources：加载资源的工具类。
 
@@ -221,7 +221,7 @@ public class StudentController {
 
   ![1590917572321](img/1590917572321.png)
 
-#### 2.2 构建器SqlSessionFactoryBuilder
+## 2.2 构建器SqlSessionFactoryBuilder
 
 * org.apache.ibatis.session.SqlSessionFactoryBuilder：获取 SqlSessionFactory 工厂对象的功能类
 
@@ -240,7 +240,7 @@ SqlSessionFactory factory = builder.build(inputStream);
 
 其中， Resources 工具类，这个类在 org.apache.ibatis.io 包中。Resources 类帮助你从类路径下、文件系统或一个 web URL 中加载资源文件。
 
-#### 2.3 工厂对象SqlSessionFactory
+## 2.3 工厂对象SqlSessionFactory
 
 * org.apache.ibatis.session.SqlSessionFactory：获取 SqlSession 构建者对象的工厂接口。
 
@@ -250,7 +250,7 @@ SqlSessionFactory factory = builder.build(inputStream);
 
 
 
-#### 2.4 SqlSession会话对象
+## 2.4 SqlSession会话对象
 
 * org.apache.ibatis.session.SqlSession：构建者对象接口。用于执行 SQL、管理事务、接口代理。
 
@@ -260,9 +260,9 @@ SqlSessionFactory factory = builder.build(inputStream);
 
 SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看到所有执行语句、提交或回滚事务和获取映射器实例的方法。
 
-### 三.MyBatis 映射配置文件
+# 三.MyBatis 映射配置文件
 
-#### 3.1 映射配置文件介绍
+## 3.1 映射配置文件介绍
 
 * 映射配置文件包含了数据和对象之间的映射关系以及要执行的 SQL 语句
 
@@ -270,7 +270,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
 
 
-#### 3.2 查询功能
+## 3.2 查询功能
 
 * <select>：查询功能标签。
 
@@ -288,7 +288,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
   ![1590917699865](img/1590917699865.png)
 
-#### 3.3 新增功能 
+## 3.3 新增功能 
 
 - <insert>：新增功能标签。
 
@@ -308,7 +308,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
 
 
-#### 3.4 修改功能
+## 3.4 修改功能
 
 - <update>：修改功能标签。
 
@@ -326,7 +326,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
 ![1590918538863](img/1590918538863.png)
 
-#### 3.5 删除功能
+## 3.5 删除功能
 
 - <delete>：查询功能标签。
 
@@ -346,13 +346,13 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
 * 总结： 大家可以发现crud操作，除了标签名称以及sql语句不一样之外，其他属性参数基本一致。
 
-#### 3.6 映射配置文件小结
+## 3.6 映射配置文件小结
 
 ![1590918743943](img/1590918743943.png)
 
-### 四.Mybatis核心配置文件介绍
+# 四.Mybatis核心配置文件介绍
 
-#### 4.1 核心配置文件介绍
+## 4.1 核心配置文件介绍
 
 核心配置文件包含了 MyBatis 最核心的设置和属性信息。如数据库的连接、事务、连接池信息等。
 
@@ -391,7 +391,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 </configuration>
 ~~~
 
-#### 4.2 数据库连接配置文件引入
+## 4.2 数据库连接配置文件引入
 
 * properties标签引入外部文件
 
@@ -412,7 +412,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
   
 
-#### 4.3 起别名
+## 4.3 起别名
 
 * <typeAliases>：为全类名起别名的父标签。
 
@@ -440,13 +440,13 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
       </typeAliase
   ~~~
 
-#### 4.4 总结
+## 4.4 总结
 
 ![1590919367790](img/1590919367790.png)
 
-### 五.Mybatis传统方式开发
+# 五.Mybatis传统方式开发
 
-#### 5.1 Dao 层传统实现方式
+## 5.1 Dao 层传统实现方式
 
 * 分层思想：控制层(controller)、业务层(service)、持久层(dao)。
 
@@ -454,7 +454,7 @@ SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看
 
   ![1590919558066](img/1590919558066.png)
 
-#### 5.2 LOG4J的配置和使用
+## 5.2 LOG4J的配置和使用
 
 * 在日常开发过程中，排查问题时难免需要输出 MyBatis 真正执行的 SQL 语句、参数、结果等信息，我们就可以借助 LOG4J 的功能来实现执行信息的输出。
 
