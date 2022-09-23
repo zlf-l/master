@@ -1,5 +1,7 @@
 # Spring
 
+https://www.cnblogs.com/doudouxiaoye/p/5693399.html
+
 ## 简介
 
 Spring是目前最流行的Java框架，他里面集成了大量的工具以及一些开箱即用的解决方案。
@@ -7,8 +9,8 @@ Spring是目前最流行的Java框架，他里面集成了大量的工具以及�
 Spring是一个轻量级的控制反转和面向切面的容器框架，用来解决企业项目开发的复杂问题——解耦。
 
 * 轻量级：体积小，对代码没有入侵性
-* 控制反转：IoC（Inverse of Control），把创建对象的工作交给Spring完成，Spring在创建对象的时候同时可以完成对象属性复制（DI）
-* 面向切面：`AOP`（Aspect Oriented Programming）面向切面编程，可以再不改变原有业务逻辑的情况下实现对业务的增强
+* 控制反转：`IoC`（Inverse of Control），把创建对象的工作交给Spring完成，Spring在创建对象的时候同时可以完成对象属性复制（DI）
+* 面向切面：`AOP`（Aspect Oriented Programming）面向切面编程，可以再不改变原有业务逻辑的情况下实现对业务的增强（**AOP并没有帮助我们解决任何新的问题，它只是提供了一种更好的办法，能够用更少的工作量来解决现有的一些问题，使得系统更加健壮，可维护性更好**）
 * 容器：实例（beans）的容器，管理创建的对象
 
 ## Spring架构
@@ -178,7 +180,7 @@ Spring除了提供基于XML的配置⽅式，同时提供了基于注解的配�
 
   属性注解、⽅法注解（set⽅法），声明当前属性⾃动装配，默认byType 
 
-  @Autowired(required = false) 通过requried属性设置当前⾃动装配是否为必须（默认必须⸺如 果没有找到类型与属性类型匹配的bean则抛出异常） •
+  @Autowired(required = false) 通过requried属性设置当前⾃动装配是否为必须（默认必须⸺如 果没有找到类型与属性类型匹配的bean则抛出异常） 
 
   > byType、ref引⽤
 
@@ -187,3 +189,48 @@ Spring除了提供基于XML的配置⽅式，同时提供了基于注解的配�
   属性注解，也⽤于声明属性⾃动装配 
 
   默认装配⽅式为byName，如果根据byName没有找到对应的bean，则继续根据byType寻找对应 的bean，根据byType如果依然没有找到Bean或者找到不⽌⼀个类型匹配的bean,则抛出异常。
+
+### DI
+
+依赖注入，依赖，就是一类的功能实现会需要另外一些类来完成。
+
+> 在代码重用的时候，组合优先于继承
+
+主要是继承对于类型有限定（在重用代码之前，这个类已经是另一个类的子类了）
+
+## Spring事务管理
+
+* 事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。
+* **Spring的声明式事务通常是指在配置文件中对事务进行配置声明**，其中包括了很多声明属性，它是通过Spring Proxy帮你做代理，自己不用额外的写代码，只要在Spring配置文件中声明即可；通常用在数据库的操作里面；
+* **编程式事务就是指通过硬编码的方式做事务处理**，这种处理方式需要写代码，事务中的逻辑可以自己定制；可以是数据库的东东，也可以是其他的操作。
+* **Spring中也有自己的事务管理机制，一般是使用TransactionMananger进行管理，**可以通过Spring的注入来完成此功能。
+
+## Spring作用域
+
+* **singleton : 默认值，bean在每个Spring ioc 容器中只有一个实例。**
+* **prototype**：一个bean的定义可以有多个实例。
+* **request**：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。 
+*  **session**：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+* **global-session**：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+
+## SpringMVC
+
+* Spring 配备构建Web 应用的全功能MVC框架。Spring可以很便捷地和其他MVC框架集成，如Struts，Spring 的MVC框架用控制反转把业务对象和控制逻辑清晰地隔离。它也允许以声明的方式把请求参数和业务对象绑定。
+
+* SpringMVC是一个基于MVC的Web框架。SpringMVC是Spring框架的一个模块，SpringMVC和Spring无需通过中间整合层进行整合。
+
+**启用注解：**<context:annotation-config/>
+
+**SpringMVC的请求流程：**
+
+* 第一步：发起请求到**前端控制器**(DispatcherServlet)
+* 第二步：前端控制器请求**HandlerMapping**查找Handler可以根据xml配置、注解进行查找
+*  第三步：处理器映射器HandlerMapping向前端控制器返回**Handler**
+* 第四步：前端控制器调用**处理器适配器**去执行Handler
+* 第五步：处理器适配器去执行Handler
+* 第六步：Handler执行完成给适配器返回**ModelAndView**
+* 第七步：处理器适配器向前端控制器返回ModelAndView。ModelAndView是springmvc框架的一个底层对象，包括 Model和view
+* 第八步：前端控制器请求**视图解析器**去进行视图解析，根据逻辑视图名解析成真正的视图(jsp)
+* 第九步：视图解析器向前端控制器**返回View**
+* 第十步：前端控制器进行**视图渲染**。视图渲染将模型数据(在ModelAndView对象中)填充到request域
+* 第十一步：前端控制器向用户响应结果
