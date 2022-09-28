@@ -245,6 +245,26 @@ AspectOrientedProgramming⾯向切⾯编程，是⼀种利⽤“横切”的技�
 
 ![image-20220927212225359](img/image-20220927212225359.png)
 
+#### AOP开发步骤
+
+1、创建切面类，在切面类定义切点方法
+
+2、将切面类配置给Spring容器
+
+3、声明切入点
+
+4、配置AOP的通知策略（就是声明将切⾯类中的切点⽅法如何织⼊到切⼊点）
+
+> before 、after、after-throwing 、after-returning 、around
+
+#### AOP使用注意事项
+
+如果要使⽤Spring aop⾯向切⾯编程，调⽤切⼊点⽅法的对象必须通过Spring容器获取 
+
+如果⼀个类中的⽅法被声明为切⼊点并且织⼊了切点之后，通过Spring容器获取该类对象，实则获取 到的是⼀个代理对象 
+
+如果⼀个类中的⽅法没有被声明为切⼊点，通过Spring容器获取的就是这个类真实创建的对象
+
 #### 事务
 
 切面逻辑：在项目中与具体的业务逻辑没有直接关联的逻辑，这样的逻辑在各个模块中用线条连接起来，就可以形成一个面
@@ -358,7 +378,41 @@ Aspect-OrientedProgramming，就是面向切面编程，它使用动态生成字
 
 * SpringMVC是一个基于MVC的Web框架。SpringMVC是Spring框架的一个模块，SpringMVC和Spring无需通过中间整合层进行整合。
 
-**启用注解：**<context:annotation-config/>
+### 优势
+
+* 严格遵守了MVC分层思想 
+* 采⽤了松耦合、插件式结构；相⽐较于我们封装的BaseServlet以及其他的⼀些MVC框架来说更灵 活、更具扩展性
+* SpringMVC是基于Spring的扩展、提供了⼀套完善的MVC注解 
+* SpringMVC在数据绑定、视图解析都提供了多种处理⽅式，可灵活配置 
+* SpringMVC对RESTful URL设计⽅法提供了良好的⽀持
+
+### 本质工作
+
+* 接收并解析请求
+* 处理请求
+* 数据渲染、响应请求
+
+### SpringMVC的请求处理流程
+
+SpringMVC通过前端控制器（DispatcherServlet）拦截并处理⽤⼾请求的
+
+![image-20220928212739044](img/image-20220928212739044.png)
+
+> ① 前端发送请求被前端控制器DispatcherServlet拦截 
+>
+> ② 前端控制器调⽤处理器映射器HandlerMapping对请求URL进⾏解析，解析之后返回调⽤给前端控制 器 
+>
+> ③ 前端控制器调⽤处理器适配器处理调⽤链 
+>
+> ④ 处理器适配器基于反射通过适配器设计模式完成处理器(控制器)的调⽤处理⽤⼾请求 
+>
+> ⑤ 处理器适配器将控制器返回的视图和数据信息封装成ModelAndView响应给前端控制器 
+>
+> ⑥ 前端控制器调⽤视图解析器ViewResolver对ModelAndView进⾏解析，将解析结果（视图资源和数 据）响应给前端控制器 
+>
+> ⑦ 前端控制器调⽤视图view组件将数据进⾏渲染，将渲染结果（静态视图）响应给前端控制器
+>
+>  ⑧ 前端控制器响应⽤⼾请求
 
 **SpringMVC的请求流程：**
 
