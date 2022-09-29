@@ -156,39 +156,39 @@ http://www.springframework.org/schema/context/spring-context.xsd">
   >
   > @Component除了控制器、servcie和DAO之外的类⼀律使⽤此注解声明
 
-* @Scope
+* `@Scope`
 
-  类注解，⽤于声明当前类单例模式还是⾮单例模式，相当于bean标签的scope属性
+  类注解，⽤于声明当前类单例模式还是⾮单例模式，相当于`bean`标签的`scope`属性
 
-  @Scope("prototype")表⽰声明当前类为⾮单例模式（默认单例模式）
+  `@Scope`("`prototype`")表⽰声明当前类为⾮单例模式（默认单例模式）
 
-* @Lazy
+* `@Lazy`
 
-  类注解，⽤于声明⼀个单例模式的Bean是否为懒汉模式
+  类注解，⽤于声明⼀个单例模式的`Bean`是否为懒汉模式
 
-  @Lazy(true)表⽰声明为懒汉模式，默认为饿汉模式
+  `@Lazy(true)`表⽰声明为懒汉模式，默认为饿汉模式
 
-* @PostConstruct
+* `@PostConstruct`
 
-  ⽅法注解，声明⼀个⽅法为当前类的初始化⽅法（在构造器之后执⾏），相当于bean标签的init-method属性
+  ⽅法注解，声明⼀个⽅法为当前类的初始化⽅法（在构造器之后执⾏），相当于`bean`标签的`init-method`属性
 
-* @PreDestroy
+* `@PreDestroy`
 
-  ⽅法注解，声明⼀个⽅法为当前类的销毁⽅法（在对象从容器中释放之前执⾏），相当于bean标签的destorymethod属性
+  ⽅法注解，声明⼀个⽅法为当前类的销毁⽅法（在对象从容器中释放之前执⾏），相当于`bean`标签的`destorymethod`属性
 
-* @Autowired
+* `@Autowired`
 
-  属性注解、⽅法注解（set⽅法），声明当前属性⾃动装配，默认byType
+  属性注解、⽅法注解（`set`⽅法），声明当前属性⾃动装配，默认`byType`
 
-  @Autowired(required=false)通过requried属性设置当前⾃动装配是否为必须（默认必须⸺如果没有找到类型与属性类型匹配的bean则抛出异常）
+  `@Autowired(required=false)`通过`requried`属性设置当前⾃动装配是否为必须（默认必须⸺如果没有找到类型与属性类型匹配的bean则抛出异常）
 
-  > byType、ref引⽤
+  > `byType`、`ref`引⽤
 
-* @Resource
+* `@Resource`
 
   属性注解，也⽤于声明属性⾃动装配
 
-  默认装配⽅式为byName，如果根据byName没有找到对应的bean，则继续根据byType寻找对应的bean，根据byType如果依然没有找到Bean或者找到不⽌⼀个类型匹配的bean,则抛出异常。
+  默认装配⽅式为`byName`，如果根据`byName`没有找到对应的`bean`，则继续根据`byType`寻找对应的`bean`，根据`byType`如果依然没有找到`Bean`或者找到不⽌⼀个类型匹配的`bean`,则抛出异常。
 
 ### DI
 
@@ -198,24 +198,24 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 >
 > 主要是继承对于类型有限定（在重用代码之前，这个类已经是另一个类的子类了）
 
-Spring容器加载完配置文件后，通过反射创建类的对象，并给属性赋值。
+`Spring`容器加载完配置文件后，通过反射创建类的对象，并给属性赋值。
 
 三种注入方式：
 
-set方法注入、构造器注入、接口注入（不常用）
+`set`方法注入、构造器注入、接口注入（不常用）
 
-* Set方法注入：在bean标签中通过配置property标签给属性赋值，实际上就是通过反射调用set方法完成属性的注入。
+* `Set`方法注入：在`bean`标签中通过配置`property`标签给属性赋值，实际上就是通过反射调用`set`方法完成属性的注入。
 * 构造器注入：即通过构造函数完成依赖关系的设定,容器通过调用类的构造方法将其所需的依赖关系注入其中。
 
 > 有何不同
 >
 > 接口注入：具备侵入性，它要求组件必须与特定的接口相关联，因此并不被看好，实际使用有限。
 >
-> set注入：通过setter方法设定依赖关系更加直观。如果依赖关系较为复杂，那么构造子注入模式的构造函数也会相当庞大，而此时设值注入模式则更为简洁。如果用到了第三方类库，可能要求我们的组件提供一个默认的构造函数，此时构造子注入模式也不适用。
+> `set`注入：通过`setter`方法设定依赖关系更加直观。如果依赖关系较为复杂，那么构造子注入模式的构造函数也会相当庞大，而此时设值注入模式则更为简洁。如果用到了第三方类库，可能要求我们的组件提供一个默认的构造函数，此时构造子注入模式也不适用。
 >
 > 构造器注入：在构造期间完成一个完整的、合法的对象。所有依赖关系在构造函数中集中呈现。依赖关系在构造时由容器一次性设定，组件被创建之后一直处于相对“不变”的稳定状态。只有组件的创建者关心其内部依赖关系，对调用者而言，该依赖关系处于“黑盒”之中。
 >
-> 构造方法注入和setter方法注入因为其侵入性较弱，且易于理解和使用，所以是现在使用最多的注入方式；而接口注入因为侵入性较强，近年来已经不流行了
+> 构造方法注入和`setter`方法注入因为其侵入性较弱，且易于理解和使用，所以是现在使用最多的注入方式；而接口注入因为侵入性较强，近年来已经不流行了
 
 ### AOP
 
@@ -235,7 +235,7 @@ set方法注入、构造器注入、接口注入（不常用）
 
 ##### 动态代理
 
-动态代理，⼏乎可以为所有的类产⽣代理对象，一个代理实例（Proxy实例），可以代理任意多个目标对象
+动态代理，⼏乎可以为所有的类产⽣代理对象，一个代理实例（`Proxy`实例），可以代理任意多个目标对象
 
 #### AOP
 
@@ -243,7 +243,7 @@ AspectOrientedProgramming⾯向切⾯编程，是⼀种利⽤“横切”的技�
 
 基于动态代理实现在不改变原有业务的情况下对业务逻辑进⾏增强
 
-![image-20220927212225359](img/image-20220927212225359.png)
+![image-20220929202008928](img/image-20220929202008928.png)
 
 #### AOP开发步骤
 
@@ -255,13 +255,13 @@ AspectOrientedProgramming⾯向切⾯编程，是⼀种利⽤“横切”的技�
 
 4、配置AOP的通知策略（就是声明将切⾯类中的切点⽅法如何织⼊到切⼊点）
 
-> before 、after、after-throwing 、after-returning 、around
+> before、after、after-throwing、after-returning、around
 
 #### AOP使用注意事项
 
-如果要使⽤Spring aop⾯向切⾯编程，调⽤切⼊点⽅法的对象必须通过Spring容器获取 
+如果要使⽤Springaop⾯向切⾯编程，调⽤切⼊点⽅法的对象必须通过Spring容器获取
 
-如果⼀个类中的⽅法被声明为切⼊点并且织⼊了切点之后，通过Spring容器获取该类对象，实则获取 到的是⼀个代理对象 
+如果⼀个类中的⽅法被声明为切⼊点并且织⼊了切点之后，通过Spring容器获取该类对象，实则获取到的是⼀个代理对象
 
 如果⼀个类中的⽅法没有被声明为切⼊点，通过Spring容器获取的就是这个类真实创建的对象
 
@@ -372,58 +372,118 @@ Aspect-OrientedProgramming，就是面向切面编程，它使用动态生成字
 * **编程式事务就是指通过硬编码的方式做事务处理**，这种处理方式需要写代码，事务中的逻辑可以自己定制；可以是数据库的东东，也可以是其他的操作。
 * **Spring中也有自己的事务管理机制，一般是使用TransactionMananger进行管理，**可以通过Spring的注入来完成此功能。
 
-## SpringMVC
+# SpringMVC
 
 * Spring配备构建Web应用的全功能MVC框架。Spring可以很便捷地和其他MVC框架集成，如Struts，Spring的MVC框架用控制反转把业务对象和控制逻辑清晰地隔离。它也允许以声明的方式把请求参数和业务对象绑定。
 
 * SpringMVC是一个基于MVC的Web框架。SpringMVC是Spring框架的一个模块，SpringMVC和Spring无需通过中间整合层进行整合。
 
-### 优势
+## 优势
 
-* 严格遵守了MVC分层思想 
-* 采⽤了松耦合、插件式结构；相⽐较于我们封装的BaseServlet以及其他的⼀些MVC框架来说更灵 活、更具扩展性
-* SpringMVC是基于Spring的扩展、提供了⼀套完善的MVC注解 
-* SpringMVC在数据绑定、视图解析都提供了多种处理⽅式，可灵活配置 
-* SpringMVC对RESTful URL设计⽅法提供了良好的⽀持
+* 严格遵守了MVC分层思想
+* 采⽤了松耦合、插件式结构；相⽐较于我们封装的BaseServlet以及其他的⼀些MVC框架来说更灵活、更具扩展性
+* SpringMVC是基于Spring的扩展、提供了⼀套完善的MVC注解
+* SpringMVC在数据绑定、视图解析都提供了多种处理⽅式，可灵活配置
+* SpringMVC对RESTfulURL设计⽅法提供了良好的⽀持
 
-### 本质工作
+## 核心工作
 
 * 接收并解析请求
 * 处理请求
 * 数据渲染、响应请求
 
-### SpringMVC的请求处理流程
+## SpringMVC的请求处理流程
 
 SpringMVC通过前端控制器（DispatcherServlet）拦截并处理⽤⼾请求的
 
-![image-20220928212739044](img/image-20220928212739044.png)
+![image-20220929191701695](img/image-20220929191701695.png)
 
-> ① 前端发送请求被前端控制器DispatcherServlet拦截 
+> 1. 用户通过浏览器发起 HttpRequest 请求到前端控制器 (DispatcherServlet)。
 >
-> ② 前端控制器调⽤处理器映射器HandlerMapping对请求URL进⾏解析，解析之后返回调⽤给前端控制 器 
+> 2. DispatcherServlet 将用户请求发送给处理器映射器 (HandlerMapping)。
 >
-> ③ 前端控制器调⽤处理器适配器处理调⽤链 
+> 3. 处理器映射器 (HandlerMapping)会根据请求，找到负责处理该请求的处理器，并将其封装为处理器执行链 返回 (HandlerExecutionChain) 给 DispatcherServlet
 >
-> ④ 处理器适配器基于反射通过适配器设计模式完成处理器(控制器)的调⽤处理⽤⼾请求 
+> 4. DispatcherServlet 会根据 处理器执行链 中的处理器，找到能够执行该处理器的处理器适配器(HandlerAdaptor)    --注，处理器适配器有多个
 >
-> ⑤ 处理器适配器将控制器返回的视图和数据信息封装成ModelAndView响应给前端控制器 
+> 5. 处理器适配器 (HandlerAdaptoer) 会调用对应的具体的 Controller
 >
-> ⑥ 前端控制器调⽤视图解析器ViewResolver对ModelAndView进⾏解析，将解析结果（视图资源和数 据）响应给前端控制器 
+> 6. Controller 将处理结果及要跳转的视图封装到一个对象 ModelAndView 中并将其返回给处理器适配器 (HandlerAdaptor)
 >
-> ⑦ 前端控制器调⽤视图view组件将数据进⾏渲染，将渲染结果（静态视图）响应给前端控制器
+> 7. HandlerAdaptor 直接将 ModelAndView 交给 DispatcherServlet ，至此，业务处理完毕
 >
->  ⑧ 前端控制器响应⽤⼾请求
+> 8. 业务处理完毕后，我们需要将处理结果展示给用户。于是DisptcherServlet 调用 ViewResolver，将 ModelAndView 中的视图名称封装为视图对象
+>
+> 9. ViewResolver 将封装好的视图 (View) 对象返回给 DIspatcherServlet
+>
+> 10. DispatcherServlet 调用视图对象，让其自己 (View) 进行渲染（将模型数据填充至视图中），形成响应对象 (HttpResponse)
+>
+> 11. 前端控制器 (DispatcherServlet) 响应 (HttpResponse) 给浏览器，展示在页面上。
 
-**SpringMVC的请求流程：**
+## 核心组件
 
-* 第一步：发起请求到**前端控制器**(**DispatcherServlet**)
-* 第二步：前端控制器请求**HandlerMapping**查找**Handler**可以根据**xml**配置、注解进行查找
-*  第三步：处理器映射器**HandlerMapping**向前端控制器返回**Handler**
-* 第四步：前端控制器调用**处理器适配器**去执行**Handler**
-* 第五步：处理器适配器去执行**Handler**
-* 第六步：**Handler**执行完成给适配器返回**ModelAndView**
-* 第七步：处理器适配器向前端控制器返回**ModelAndView**。**ModelAndView**是**springmvc**框架的一个底层对象，包括**Model**和**view**
-* 第八步：前端控制器请求**视图解析器**去进行视图解析，根据逻辑视图名解析成真正的视图(**jsp**)
-* 第九步：视图解析器向前端控制器**返回View**
-* 第十步：前端控制器进行**视图渲染**。视图渲染将模型数据(在**ModelAndView**对象中)填充到**request**域
-* 第十一步：前端控制器向用户响应结果
+* DispatchServlet前端控制器、总控制器
+
+  用于接收请求，协同各组件工作、响应请求
+
+* HandlerMapping处理器映射器
+
+  用于负责根据用户请求的URL找到对应的Handler
+
+  可以根据需要配置多个处理器映射
+
+* HandlerAdapter处理器适配器
+
+  用于处理处理器映射器解析的用户请求的调用链，通过适配器完成Handler的调用
+
+* Handler处理器控制器
+
+  由开发工程师根据业务需求进行开发，用于处理请求
+
+* ModelAndView视图模型
+
+  用于封装处理器返回的数据以相应的视图
+
+* ViewResolver视图解析器
+
+  用于对ModelAndView进行解析
+
+  可以根据需要配置多个视图解析器
+
+# SpringBoot
+
+SpringBoot采⽤了习惯优于配置/约定⼤于配置的理念快速搭建项⽬的开发环境，开发者⽆需或者进⾏很少的配置就可以快速的将项⽬运⾏起来。
+
+* 习惯优于配置：在项⽬框架整合过程中，配置⽂件⼏乎都是相同的（习惯），因此我们可以预先将这些配置定义好，当需要整合时直接引⽤预先定义的配置。 
+
+* 随着动态语⾔的流⾏，Java语⾔开发显得越来越笨重：配置繁琐、开发效率低、项⽬部署变得复杂、集成第三⽅技术难度⼤,在这种情况下，SpringBoot就应运⽽⽣。
+
+## 优势
+
+* 能够零配置快速搭建项目
+* 对主流的第三方框架提供了无配置集成（springBoot内置了配置）
+* 项目可以独立运行，无需单独配置Servlet容器（SpringBoot搭建的web项目内置了Tomcat）
+* 提高了开发效率、部署效率
+* SpringBoot提供了运行监控的日志系统
+* SpringBoot与云原生有天然的集成（Spring Cloud）
+
+## 缺点
+
+* 由于配置都是内置的，报错定位难度大（使用简单，极易上手、精通难）
+* 传统项目微服务改造难
+
+## 自动配置
+
+SpringBoot应⽤从启动类的主⽅法启动
+
+SpringBoot⾃动配置是通过加载⾃动配置类，判断配置类的初始化条件，满⾜条件则对配置类进⾏初始化来完成的。
+
+### 启动类注解
+
+@SpringBootApplication实际指代的是⼀组注解。
+
+*  @ComponentScan注解，声明Spring容器的组件加载范围⸺启动类所在的包。 
+*  @EnableAutoConfiguration注解，声明开启SpringBoot的⾃动配置。 
+* @SpringBootConfiguration注解，声明启动类同时为Spring的配置类（在配置类中定义⽅法，在⽅法上添加@Bean注解，就可以将⽅法返回的对象存放到Spring容器）。
+
+![image-20220929201913608](img/image-20220929201913608.png)
