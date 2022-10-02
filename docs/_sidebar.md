@@ -56,7 +56,11 @@
     * [商品秒杀](backstage/项目总结/商品秒杀总结.md)
 * 面试
   * java
-    * [java基础](interview/Java-基础.md)
+    * [Java-基础](interview/Java-基础.md)
+    * [Java基础](interview/Java基础.md)
+    * [多线程](interview/多线程.md)
+    * [设计模式](interview/设计模式.md)
+    * [开源框架](interview/开源框架.md)
 * 前端
   * React
     * [React-模板快捷键](frontstage/React/React-模板快捷键.md)
