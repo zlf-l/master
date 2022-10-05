@@ -204,7 +204,7 @@ clone在第一步是和new相似的，都是分配内存，调用clone方法时�
 
 ## 27.Java中==和equals()的区别
 
-使用==比较原生类型如：booleanintchar等等，使用equals()比较对象。
+使用==比较原生类型如：boolean、int、char等等，使用equals()比较对象。
 
 * ==是判断两个变量或实例是不是指向同一个内存空间。equals是判断两个变量或实例所指向的内存空间的值是不是相同。
 
