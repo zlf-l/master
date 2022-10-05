@@ -58,7 +58,7 @@ ClassLoader.loadClass(className)方法，内部实际调用的方法是ClassLoad
 
 Integer是int的包装类型，在拆箱和装箱中，二者自动转换.int是基本类型，直接存数值；而integer是对象；用一个引用指向这个对象.由于Integer是一个对象，在JVM中对象需要一定的数据结构进行描述，相比int而言，其占用的内存更大一些.
 
-## 8.StringStringBuilderStringBuffer区别
+## 8.String、StringBuilder、StringBuffer区别
 
 String字符串常量不可变使用字符串拼接时是不同的2个空间
 
