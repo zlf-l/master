@@ -243,7 +243,7 @@ new创建新对象；通过反射机制；采用clone机制；通过序列化机
 
 ## 32.Object中有哪些公共方法
 
-Object是所有类的父类，任何类都默认继承Objectclone保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。equals在Object中与==是一样的，子类一般需要重写该方法。hashCode该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。getClassfinal方法，获得运行时类型wait使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(longtimeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。
+Object是所有类的父类，任何类都默认继承Object clone保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。equals在Object中与==是一样的，子类一般需要重写该方法。hashCode该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。getClassfinal方法，获得运行时类型wait使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。
 
 ## 33.&和&&的区别
 
@@ -277,7 +277,7 @@ Object是所有类的父类，任何类都默认继承Objectclone保护方法，
 
 ## 38.String是基本数据类型
 
-基本数据类型包括byte、int、char、long、float、doubleboolean和short。
+基本数据类型包括byte、int、char、long、float、double、boolean和short。
 
 java.lang.String类是final类型的，因此不可以继承这个类不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类
 
@@ -389,7 +389,7 @@ break和continue都是用来控制循环的语句。break用于完全结束一�
 
 异常表示程序运行过程中可能出现的非正常状态，运行时异常表示虚拟机的通常操作中可能遇到的异常，是一种常见运行错误。java编译器要求方法必须声明抛出可能发生的非运行时异常，但是并不要求必须声明抛出未被捕获的运行时异常。
 
-## 55.ListMapSet三个接口存取元素时，各有什么特点
+## 55.List、Map、Set三个接口存取元素时，各有什么特点
 
 List以特定索引来存取元素，可以有重复元素。Set不能存放重复元素（用对象的equals()方法来区分元素是否重复）。Map保存键值对（key-valuepair）映射，映射关系可以是一对一或多对一
 
@@ -455,9 +455,7 @@ static变量在Java中是属于类的，它在所有的实例中的值是一样�
 
 ## 66.什么是迭代器(Iterator)
 
-Iterator接口提供了很多对集合元素进行迭代的方法。每一个集合类都包含了可以返回迭代器实例的
-
-迭代方法。迭代器可以在迭代的过程中删除底层集合的元素。
+Iterator接口提供了很多对集合元素进行迭代的方法。每一个集合类都包含了可以返回迭代器实例的迭代方法。迭代器可以在迭代的过程中删除底层集合的元素。
 
 克隆(cloning)或者是序列化(serialization)的语义和含义是跟具体的实现相关的。因此，应该由集合类的具体实现来决定如何被克隆或者是序列化。
 
@@ -473,9 +471,7 @@ ListIterator实现了Iterator接口，并包含其他的功能，比如：增加
 
 ## 68.Enumeration接口和Iterator接口的区别有哪些
 
-Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Iterator远远比
-
-Enumeration安全，因为其他线程不能够修改正在被iterator遍历的集合里面的对象。同时，Iterator允许调用者删除底层集合里面的元素，这对Enumeration来说是不可能的。
+Enumeration速度是Iterator的2倍，同时占用更少的内存。但是，Iterator远远比Enumeration安全，因为其他线程不能够修改正在被iterator遍历的集合里面的对象。同时，Iterator允许调用者删除底层集合里面的元素，这对Enumeration来说是不可能的。
 
 ## 69.List，Set，Map是否继承自Collection接口
 
@@ -495,7 +491,7 @@ jdk8.0java虚拟机规范中又声明了元空间，字符串常量池存放在�
 
 ## 72.用哪两种方式来实现集合的排序
 
-你可以使用有序集合，如TreeSet或TreeMap，你也可以使用有顺序的的集合，如list，然后通过Collections.sort()来排序。
+可以使用有序集合，如TreeSet或TreeMap，也可以使用有顺序的的集合，如list，然后通过Collections.sort()来排序。
 
 ## 73.JDK1.7中的三个新特性
 
