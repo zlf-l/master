@@ -2,7 +2,7 @@
   * Java 工具类
     * [方法](tool/方法.md)
     * [表达式计算](tool/表达式计算.md)
-    * [画印章](tool/画印章.md)]
+    * [画印章](tool/画印章.md)
   * JavaSE
     * [JavaSE-语法](backstage/JavaSE/JavaSE.md)
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-面向对象.md)
