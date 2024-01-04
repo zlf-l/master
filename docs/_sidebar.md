@@ -1,4 +1,7 @@
 * 后端
+  * Java 工具类 ExpressionCalculation
+    * [方法](tool/方法.md)
+    * [表达式计算](tool/表达式计算.md)
   * JavaSE
     * [JavaSE-语法](backstage/JavaSE/JavaSE.md)
     * [JavaSE-面向对象](backstage/JavaSE/JavaSE-面向对象.md)
